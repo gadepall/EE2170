@@ -1,0 +1,321 @@
+\documentclass[journal,12pt,twocolumn]{IEEEtran}
+%
+\usepackage{setspace}
+\usepackage{gensymb}
+\usepackage{xcolor}
+\usepackage{caption}
+%\usepackage{subcaption}
+%\doublespacing
+\singlespacing
+\usepackage{multicol}
+
+\usepackage{iithtlc}
+%\usepackage{graphicx}
+%\usepackage{amssymb}
+%\usepackage{relsize}
+\usepackage[cmex10]{amsmath}
+\usepackage{mathtools}
+%\usepackage{amsthm}
+%\interdisplaylinepenalty=2500
+%\savesymbol{iint}
+%\usepackage{txfonts}
+%\restoresymbol{TXF}{iint}
+%\usepackage{wasysym}
+\usepackage{amsthm}
+\usepackage{mathrsfs}
+\usepackage{txfonts}
+\usepackage{stfloats}
+\usepackage{cite}
+\usepackage{cases}
+\usepackage{subfig}
+%\usepackage{xtab}
+\usepackage{longtable}
+\usepackage{multirow}
+%\usepackage{algorithm}
+%\usepackage{algpseudocode}
+\usepackage{enumitem}
+\usepackage{mathtools}
+%\usepackage{stmaryrd}
+
+\usepackage{listings}
+    \usepackage[latin1]{inputenc}                                 %%
+    \usepackage{color}                                            %%
+    \usepackage{array}                                            %%
+    \usepackage{longtable}                                        %%
+    \usepackage{calc}                                             %%
+    \usepackage{multirow}                                         %%
+    \usepackage{hhline}                                           %%
+    \usepackage{ifthen}                                           %%
+  %optionally (for landscape tables embedded in another document): %%
+    \usepackage{lscape}     
+\usepackage{circuitikz}
+%\usepackage{wasysym}
+%\newcounter{MYtempeqncnt}
+\DeclareMathOperator*{\Res}{Res}
+%\renewcommand{\baselinestretch}{2}
+\renewcommand\thesection{\arabic{section}}
+\renewcommand\thesubsection{\thesection.\arabic{subsection}}
+\renewcommand\thesubsubsection{\thesubsection.\arabic{subsubsection}}
+
+\renewcommand\thesectiondis{\arabic{section}}
+\renewcommand\thesubsectiondis{\thesectiondis.\arabic{subsection}}
+\renewcommand\thesubsubsectiondis{\thesubsectiondis.\arabic{subsubsection}}
+
+% correct bad hyphenation here
+\hyphenation{op-tical net-works semi-conduc-tor}
+
+\def\inputGnumericTable{}  
+
+\lstset{
+language=python,
+frame=single, 
+breaklines=true
+}
+
+\begin{document}
+%
+
+\theoremstyle{definition}
+
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{problem}{Problem}
+\newtheorem{proposition}{Proposition}[section]
+\newtheorem{lemma}{Lemma}[section]
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{example}{Example}[section]
+\newtheorem{definition}{Definition}[section]
+%\newtheorem{algorithm}{Algorithm}[section]
+%\newtheorem{cor}{Corollary}
+\newcommand{\BEQA}{\begin{eqnarray}}
+\newcommand{\EEQA}{\end{eqnarray}}
+\newcommand{\define}{\stackrel{\triangle}{=}}
+
+\bibliographystyle{IEEEtran}
+%\bibliographystyle{ieeetr}
+
+
+
+\providecommand{\pr}[1]{\ensuremath{\Pr\left(#1\right)}}
+\providecommand{\qfunc}[1]{\ensuremath{Q\left(#1\right)}}
+\providecommand{\sbrak}[1]{\ensuremath{{}\left[#1\right]}}
+\providecommand{\lsbrak}[1]{\ensuremath{{}\left[#1\right.}}
+\providecommand{\rsbrak}[1]{\ensuremath{{}\left.#1\right]}}
+\providecommand{\brak}[1]{\ensuremath{\left(#1\right)}}
+\providecommand{\lbrak}[1]{\ensuremath{\left(#1\right.}}
+\providecommand{\rbrak}[1]{\ensuremath{\left.#1\right)}}
+\providecommand{\cbrak}[1]{\ensuremath{\left\{#1\right\}}}
+\providecommand{\lcbrak}[1]{\ensuremath{\left\{#1\right.}}
+\providecommand{\rcbrak}[1]{\ensuremath{\left.#1\right\}}}
+\theoremstyle{remark}
+\newtheorem{rem}{Remark}
+\newcommand{\sgn}{\mathop{\mathrm{sgn}}}
+\providecommand{\abs}[1]{\left\vert#1\right\vert}
+\providecommand{\res}[1]{\Res\displaylimits_{#1}} 
+\providecommand{\norm}[1]{\lVert#1\rVert}
+\providecommand{\mtx}[1]{\mathbf{#1}}
+\providecommand{\mean}[1]{E\left[ #1 \right]}
+\providecommand{\fourier}{\overset{\mathcal{F}}{ \rightleftharpoons}}
+%\providecommand{\hilbert}{\overset{\mathcal{H}}{ \rightleftharpoons}}
+\providecommand{\system}{\overset{\mathcal{H}}{ \longleftrightarrow}}
+\providecommand{\gauss}[2]{\mathcal{N}\ensuremath{\left(#1,#2\right)}}
+	%\newcommand{\solution}[2]{\textbf{Solution:}{#1}}
+\newcommand{\solution}{\noindent \textbf{Solution: }}
+\providecommand{\dec}[2]{\ensuremath{\overset{#1}{\underset{#2}{\gtrless}}}}
+%\numberwithin{equation}{section}
+%\numberwithin{problem}{section}
+
+\def\putbox#1#2#3{\makebox[0in][l]{\makebox[#1][l]{}\raisebox{\baselineskip}[0in][0in]{\raisebox{#2}[0in][0in]{#3}}}}
+     \def\rightbox#1{\makebox[0in][r]{#1}}
+     \def\centbox#1{\makebox[0in]{#1}}
+     \def\topbox#1{\raisebox{-\baselineskip}[0in][0in]{#1}}
+     \def\midbox#1{\raisebox{-0.5\baselineskip}[0in][0in]{#1}}
+
+
+% paper title
+% can use linebreaks \\ within to get better formatting as desired
+\title{
+\logo{
+Mathematics through OPAMP 
+}
+}
+%
+%
+% author names and IEEE memberships
+% note positions of commas and nonbreaking spaces ( ~ ) LaTeX will not break
+% a structure at a ~ so this keeps an author's name from being broken across
+% two lines.
+% use \thanks{} to gain access to the first footnote area
+% a separate \thanks must be used for each paragraph as LaTeX2e's \thanks
+% was not built to handle multiple paragraphs
+%
+
+%\author{Y Aditya, A Rathnakar and G V V Sharma$^{*}$% <-this % stops a space
+\author{G V S S Praneeth Varma, CH. Gajendranath Choudhury and G V V Sharma %<-this  stops a space
+\thanks{The authors are with the Department
+of Electrical Engineering, IIT, Hyderabad
+502285 India e-mail: \{gadepall\}@iith.ac.in. All material in the manuscript is released under GNU GPL.  Free to use for all.
+}}
+
+
+
+% make the title area
+\maketitle
+
+\tableofcontents
+
+\bigskip
+
+\begin{abstract}
+%\boldmath
+This manual shows how to use an OPAMP for implementing mathematical functions.
+
+\end{abstract}
+%\begin{problem}
+%Design a circuit for
+%\begin{equation}
+%y = kx, \quad k > 0
+%\end{equation}
+%\end{problem}
+%\solution  The desired circuit is available in Fig. \ref{fig:noninvert}.  Using node analysis at $v$ and the fact that $v=x$,
+%\begin{align}
+%\label{eq:noninvert_node}
+%\frac{v }{R_i} + \frac{v-y}{R_f}  &= 0,
+%\\
+%v & = x
+%\end{align}
+%Thus, \eqref{eq:noninvert_node} qyields
+%\begin{align}
+%y = v\brak{1+\frac{R_f}{R_i}}
+%\end{align}
+%\begin{figure}[!h]
+%\centering
+%\resizebox {\columnwidth} {!} {
+%\input{./figs/noninvert.tex}
+%}
+%\caption{$y = kx$.}
+%\label{fig:noninvert}
+%\end{figure}
+\section{Linear Combination}
+\begin{problem}
+\label{prob:lincomb_node}
+In Fig. \ref{fig:lincomb}, the current entering the $+$ and $-$ terminals of the opamp is 0. The voltages at both terminals is $v$. Show that
+\begin{equation}
+\label{eq:lincomb_node}
+y = k_1x_1 - k_2x_2, \quad k_1, k_2 > 0
+\end{equation}
+where $x_1,x_2$ are the inputs.  Find the values of $k_1$ and $k_2$.
+\end{problem}
+%
+\solution
+Using node analysis,
+\begin{align}
+\frac{v-x_2}{R_2} + \frac{v-y}{R_f} &= 0
+\\
+\frac{v-x_1}{R_1} + \frac{v}{R_3} &= 0
+\end{align}
+resulting in
+\begin{align}
+v \brak{\frac{1}{R_2}+\frac{1}{R_f}} &= \frac{x_2}{R_2}+\frac{y}{R_f} 
+\\
+\frac{x_1}{R_1} &= v\brak{\frac{1}{R_1}+\frac{1}{R_3}}
+\end{align}
+Simplifying,
+\begin{align}
+\frac{x_1}{R_1}\brak{\frac{1}{R_2}+\frac{1}{R_f}} &= \frac{x_2}{R_2}\brak{\frac{1}{R_1}+\frac{1}{R_3}} + \frac{y}{R_f} \brak{\frac{1}{R_1}+\frac{1}{R_3}}
+\\
+\implies y &= \frac{ -\frac{x_2}{R_2}\brak{\frac{1}{R_1}+\frac{1}{R_3}} +\frac{x_1}{R_1}\brak{\frac{1}{R_2}+\frac{1}{R_f}} }{\frac{1}{R_f}\brak{\frac{1}{R_1}+\frac{1}{R_3}}}
+\\
+&=  \underbrace{\frac{R_3\brak{{R_2}+{R_f}}}{R_1\brak{{R_1}+{R_3}}}}_{k_1}x_1-\underbrace{\frac{R_f}{R_2}}_{k_2}x_2
+\\
+&= k_1 x_1 - k_2 x_2
+\end{align}
+
+\begin{figure}[!h]
+\centering
+\resizebox {\columnwidth} {!} {
+\input{./figs/lincomb.tex}
+}
+\caption{$y = k_1x_1 - k_2x_2$.}
+\label{fig:lincomb}
+\end{figure}
+\begin{problem}
+Design a circuit for 
+\begin{equation}
+\label{eq:lin_pos}
+y = kx, \quad k > 0
+\end{equation}
+\end{problem}
+\begin{problem}
+Design a circuit for 
+\begin{equation}
+\label{eq:lin_neg}
+y = -kx, \quad k > 0
+\end{equation}
+\end{problem}
+\section{Differentiation and Integration}
+\begin{problem}
+\label{prob:derivative}
+Design a circuit for 
+\begin{equation}
+x = -k\frac{dy}{dt},  k > 0
+\end{equation}
+and obtain an expression for $k$.
+\end{problem}
+\solution
+Fig. \ref{fig:derivative} provides the solution which is explained below. Using node analysis in the $s$ domain,
+\begin{align}
+\frac{V(s)- Y(s)}{R} + sC{V(s)-X(s)} = 0
+\end{align}
+%
+Since $v = 0$, the above equation results in
+\begin{align}
+Y(s) &= -sCR X(s)
+\\
+\implies y(t) &= -\underbrace{RC}_{k} \frac{dx}{dt}
+\end{align}
+\begin{figure}[!h]
+\centering
+\resizebox {\columnwidth} {!} {
+\input{./figs/derivative.tex}
+}
+\caption{$y = -k\frac{dx}{dt}$.}
+\label{fig:derivative}
+\end{figure}
+%
+\begin{problem}
+Modify the circuit in Problem \ref{prob:derivative} to obtain
+%
+\begin{equation}
+y = k\int x(t)\,dt
+\end{equation}
+%
+Is $k > 0?$.
+\end{problem}
+\begin{problem}
+How will you obtain 
+%
+\begin{equation}
+y = k \frac{dx}{dt}, \quad k > 0 ?
+\end{equation}
+%
+\end{problem}
+\section{Practical Verification}
+In the following, $1k\Omega$ and $2k\Omega$ resistances are available.
+\begin{problem}
+Verify your circuit in Problem \ref{prob:lincomb_node} for $x_1 = 0.5 V, x_2 = 1 V, y = -1.1. V $.
+\end{problem}
+\begin{problem}
+Verify  your circuit for \eqref{eq:lin_pos} for  $x = 0.5 V$ and $y = 1.5 V$. You will have to choose the resistances appropriately.
+\end{problem}
+\begin{problem}
+Verify your circuit for \eqref{eq:lin_neg} if $x = 1 V, y = -2 V$.
+\end{problem}
+\begin{problem}
+A triangular wave with $V_{pp} = 1V$ and frequency  100 Hz is given as the input in Problem \ref{prob:derivative}.  What is the output for $C = 1 \mu F$ and $R = 10 k\Omega$? Verify your
+result.
+\end{problem}
+
+
+\end{document}
+
+

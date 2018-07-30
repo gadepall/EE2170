@@ -1,0 +1,20 @@
+%\documentclass{standalone}
+%\usepackage{circuitikz}
+%
+%\begin{document}
+%
+%\begin{circuitikz}
+%  [
+%    point/.style = {draw, circle,  fill = black, inner sep = 0.5pt},
+%  ]
+\begin{circuitikz}
+  \draw (0,0) node[op amp] (opamp) {}
+  (opamp.-) to[short,*-]  ($(opamp.-)+(0,.5)$) node[ground,rotate=180] {}  
+  (opamp.+) |- ($(opamp.+)+(0.2,-1)$) to[R=$R$] ($(opamp.+)+(2.2,-1)$) -|
+  (opamp.out) to[short,*-] ($(opamp.out)+(.5,0)$) node [right] {$y$} node [ocirc] {} 
+  (opamp.+) to [C, l_=$C$, *-o] ($(opamp.+)-(2,0)$) node[left]{$x$}
+  (opamp.-) node[below] {$v$}         
+  (opamp.+) node[above] {$v$}           
+  ;
+\end{circuitikz}
+%\end{document}

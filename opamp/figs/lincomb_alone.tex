@@ -1,0 +1,41 @@
+\documentclass{standalone}
+\usepackage{circuitikz}
+
+\begin{document}
+
+\begin{circuitikz}
+  [
+    point/.style = {draw, circle,  fill = black, inner sep = 0.5pt},
+  ]
+%\begin{circuitikz}
+  \draw (0,0) node[op amp] (opamp) {}
+  (opamp.-) to [R, l_=$R_1$, *-o] ($(opamp.-)-(2,0)$) node[left]{$x_{1}$}
+  (opamp.-) |- ($(opamp.-)+(0.2,1)$) to[R=$R_f$] ($(opamp.-)+(2.2,1)$) -|
+  (opamp.out) to[short,*-] ($(opamp.out)+(.5,0)$) node [right] {$y$} node [ocirc] {} 
+  (opamp.+) to [R, l_=$R_2$, *-o] ($(opamp.+)-(2,0)$) node[left]{$x_2$}
+  (opamp.+) to [R, l_=$R_3$] ($(opamp.+)-(0,2)$) node[ground]{}  
+  (opamp.-) node[below] {$v$}         
+  (opamp.+) node[above] {$v$}           
+%  (opamp.+) to[short]  ($(opamp.+)-(0,.5)$) node[ground] {}  
+  ;
+\end{circuitikz}
+%\node (V_o) at (2,0) [point,label = right:$y$] {};
+%\node (v) at (-1.2,-2.0) [point,label = above left:$v$] {};
+%\node (V_i) at (-3,0.5) [point,label = left:$x_2$] {};
+%\node (x_2) at (-3,-2) [point,label = left:$x_1$] {};
+%  \draw
+%  (0, 0) node[op amp] (opamp) {}
+%      (opamp.-) to[R=$R_2$] (V_i)
+%(opamp.-) node[below] {$v$}        
+%  (opamp.-) to[short,*-] ++(0,1.5) coordinate (leftC)
+%  to[R=$R_f$] (leftC -| opamp.out)
+%  to[short,-*] (opamp.out)      
+%%  (opamp.+) to[short,*-] ++(0,-1.5)  coordinate (leftC)
+%
+%  (opamp.out) node[right] {}
+%   (opamp.out) -- (V_o)
+%%  (leftC) to [R=$R_3$] ++(-0,-2.5) coordinate (gnd)
+%  (opamp.+) to [R=$R_3$]  to node[ground] {}
+% (opamp.+) to[R=$R_1$] (x_2)
+%;\end{circuitikz}
+\end{document}
